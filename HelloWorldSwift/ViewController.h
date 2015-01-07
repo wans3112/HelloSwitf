@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@protocol ViewDelegate <NSObject>
 
+@optional
+- (void)didSelect:(int)index;
+
+- (void)recvData:(NSArray *)array dic:(NSDictionary *)dic;
+
+@end
+
+@interface ViewController : UIViewController<ViewDelegate>
+
+- (IBAction)buttonPressed:(id)sender;
 
 @end
 
